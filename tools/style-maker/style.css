@@ -1,4 +1,5 @@
 title {
   font-weight: bold;
-  color: linear-gradient(to right, red, yellow, blue);
+  border: 2px solid black;
+  text-shadow: 2px 2px #808080;
 }
