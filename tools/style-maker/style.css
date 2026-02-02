@@ -1,5 +1,10 @@
+/* Title of this website (But it doesn't work!) */
 title {
   font-weight: bold;
   border: 2px solid black;
   text-shadow: 2px 2px #808080;
-}
+};
+/* Image but didn't have "<br>" in the end */
+img {
+  display: inline-block;
+};
