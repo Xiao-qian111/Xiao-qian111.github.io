@@ -13,8 +13,8 @@
     <!-- <img scr="/images/sm_icon.png"> -->
     <!-- ^^^ That doesn't work ...... again ^^^ -->
     <h1 style="margin-bottom:0;">SC's Style Maker</h1></div>
-    <input type="text" name="preview" value="Yeah this is preview"><button type="button">View</button>
-    <hr><p id="Preview">Change the preview text than click "View" button to show your style!</p><hr>
+    <input type="text" id="preview" value="Yeah this is preview"><button type="button">View</button>
+    <hr><p id="previewt">Change the preview text than click "View" button to show your style!</p><hr>
     <!-- Basic settings -->
     <h1>Basics</h1>
     <input type="checkbox" id="Bold"><label><b>Bold</b></label><br>
@@ -25,9 +25,18 @@
     <!-- Color settings -->
     <h1>Color</h1>
     <select id="c-type">
+        <option value="rgbc">RGB</option>
         <option value="hexc">HEX code</option>
         <option value="pick">Color picker</option>
         <option value="html">HTML basic colors</option>
+        <h2>(WIP)</h2>
+    </select>
+    <!-- Size settings -->
+    <h1>Size</h1>
+    <select id="c-type">
+        <input type="checkbox" id="csize"><label>Change size</label><br>
+        <input type="number" id="size" value="100">
+        <h2>(WIP)</h2>
     </select>
     <!-- Ahh WIP -->
 </body>
