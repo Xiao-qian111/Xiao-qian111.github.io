@@ -7,6 +7,7 @@ function check(var id) {
 }
 
 function preview() {
+    alert("test")
     if(check("Bold")) {
         changeStyle("previewt", "font-weight", "bold");
     }
