@@ -1,2 +1,0 @@
-I think this website isn't very well, css didn't work, and I can only use js sprite inside html file.
-So why I write this?
