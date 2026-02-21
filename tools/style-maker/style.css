@@ -9,7 +9,3 @@ tit {
 img {
   display: inline-block;
 };
-/* Overline */
-o {
-  text-decoration-line: overline;
-};
