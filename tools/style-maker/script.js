@@ -1,19 +1,27 @@
 /* Var */
-var ctype = "none";
+let ctype = "none";
 
 /* Functions */
 /* Literally */
 function changeStyle(id, sty, value) {
-    document.getElementById(id).style[sty] = value;
+    if(id) getEl(id).style[sty] = value;
 }
 
 /* I think you know what this do */
 function check(id) {
-    return document.getElementById(id).checked;
+    let el = getEl(id).checked;
+    return el ? el.checked : false;
+}
+
+/* document.getElementById */
+function getEl(id) {
+    return document.getElementById(id);
 }
 
 /* Function of preview */
 function preview() {
+    /* Change text */
+    getEl("preview").innerHTML = getEl("previewt").value;
     /* Reset style */
     changeStyle("previewt", "font-weight", "normal");
     changeStyle("previewt", "font-style", "normal");
@@ -23,7 +31,7 @@ function preview() {
     if(check("Bold")) changeStyle("previewt", "font-weight", "bold");
     if(check("Italics")) changeStyle("previewt", "font-style", "italic");
     /* Lines */
-    let lines = [];
+    var lines = [];
     if(check("Overline")) lines.push("overline");
     if(check("Underline")) lines.push("underline");
     if(check("Strikethrough")) lines.push("line-through");
@@ -33,38 +41,40 @@ function preview() {
     /* Change color */
     var color = "";
     switch(ctype) {
+        case "none":
+            color = "black";
         case "rgbc":
-            const r = document.getElementById('rgb-r').value;
-            const g = document.getElementById('rgb-g').value;
-            const b = document.getElementById('rgb-b').value;
+            const r = getEl("rgb-r")?.value || 0;
+            const g = getEl("rgb-g")?.value || 0;
+            const b = getEl("rgb-b")?.value || 0;
             color = `rgb(${r}, ${g}, ${b})`;
             break;
         case "hexc":
-            if(/^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(color)) {
-                color = document.getElementById('hex-code').value;
-            }
-            else {
+            color = getEl("hex-code")?.value || "#000000";
+            if(!/^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(color)) {
                 alert(`${color} isn't a right HEX code`);
-            }
+                color = "black"
             break;
         case "pick":
-            color = document.getElementById('color-picker').value;
+            color = getEl("color-picker")?.value || "#000000";
             break;
         case "html":
-            color = document.getElementById('color').value;
+            color = getEl("color")?.value || "#000000";
             break;
     }
     changeStyle("previewt", "color", color);
     /* Change size */
-    if(check("csize")) changeStyle("previewt", "font-size", document.getElementById('rgb-r').value);
+    if(check("csize")) changeStyle("previewt", "font-size", getEl("size").value)?.value || "100%";
 }
 
 /* Change color type */
 function colorType() {
-    ctype = document.getElementById('c-type').value;
+    ctype = getEl("c-type").value;
+    let container = getEl("color-controls-container");
     switch(ctype) {
         /* No color */
         case "none":
+            container.innerHTML = ``;
             break;
         /* RGB color */
         case "rgbc":
