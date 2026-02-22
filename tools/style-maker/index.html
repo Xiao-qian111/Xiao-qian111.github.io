@@ -34,7 +34,8 @@
     <hr>
     <!-- Color settings -->
     <h1>Color</h1>
-    <select id="c-type">
+    <select id="c-type" onchange="colorType()">
+        <option value="none">No color</option>
         <option value="rgbc">RGB</option>
         <option value="hexc">HEX code</option>
         <option value="pick">Color picker</option>
