@@ -1,0 +1,50 @@
+<!-- Code by Doubao AI -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>a.tmj</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
+    <style>
+        body { margin:0; background: #111; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+
+<script>
+class MapScene {
+    preload() {
+        this.load.tilemapTiledJSON('map', 'map.tmj');
+        this.load.tilemapTiledJSON('tileset', 'tiles/vtileset.tsj');
+    }
+
+    create() {
+        const map = this.make.tilemap({ key: 'map' });
+        const tileset = map.addTilesetImage('tiles', 'tileset');
+
+        map.createLayer('bg', tileset, 0, 0);
+        map.createLayer('dirt', tileset, 0, 0);
+        map.createLayer('castle', tileset, 0, 0);
+
+        this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+        this.input.on('pointermove', (pointer) => {
+            if (pointer.isDown) {
+                this.cameras.main.scrollX -= pointer.movementX;
+                this.cameras.main.scrollY -= pointer.movementY;
+            }
+        });
+      alert("Done!");
+    }
+}
+
+new Phaser.Game({
+    type: Phaser.AUTO,
+    width: window.innerWidth,
+    height: window.innerHeight,
+    scene: MapScene
+});
+</script>
+
+</body>
+</html>
