@@ -16,3 +16,4 @@ function setLang(lang) {
         document.getElementById(keys[i]).innerHTML = trans[lang][keys[i]];
     }
 }
+setLang("en");
