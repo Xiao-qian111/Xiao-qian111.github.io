@@ -1,4 +1,3 @@
-alert("test");
 var trans = {
     "en": {
         "flow": "This is your <s>ugly</s> flower baby:"
@@ -11,14 +10,13 @@ var trans = {
     }
 }
 
-function setLang(lang) {
-    var temp = trans[lang];
-    var key = Objects.keys(temp);
-    for(var i = 0; i < key.length; i++) {
-        document.getElementById(key[i]).innerHTML = temp[key[i]];
-    }
-    if(lang == "hyw") {
-        alert("汝母的，为什么要**这个案件（细节错别字）")
-    }
+function setLang(l) {
+    var wow = trans[l];
+	var key = Object.keys(wow);
+	for (var i=0;i<key.length;i++){
+		var temp = wow[key[i]];
+		var t = key[i];
+		document.getElementById(t).innerHTML = temp;
+	}
 }
 setLang("en");
