@@ -16,5 +16,8 @@ function setLang(lang) {
     for(var i = 0; i < keys.length; i++) {
         document.getElementById(keys[i]).innerHTML = temp[keys[i]];
     }
+    if(lang == "hyw") {
+        alert("汝母的，为什么要**这个案件（细节错别字）")
+    }
 }
 setLang("en");
