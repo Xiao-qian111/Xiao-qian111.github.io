@@ -1,3 +1,4 @@
+// languages
 var trans = {
     "en": {
         "flow": "This is your <s>ugly</s> flower baby:"
