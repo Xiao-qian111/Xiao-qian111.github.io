@@ -13,9 +13,9 @@ var trans = {
 
 function setLang(lang) {
     var temp = trans[lang];
-    var keys = Objects.keys(temp);
-    for(var i = 0; i < keys.length; i++) {
-        document.getElementById(keys[i]).innerHTML = temp[keys[i]];
+    var key = Objects.keys(temp);
+    for(var i = 0; i < key.length; i++) {
+        document.getElementById(key[i]).innerHTML = temp[key[i]];
     }
     if(lang == "hyw") {
         alert("汝母的，为什么要**这个案件（细节错别字）")
