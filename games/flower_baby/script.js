@@ -91,7 +91,7 @@ function setLang(l) {
 	for (var i=0;i<key.length;i++){
 		var temp = wow[key[i]];
 		var t = key[i];
-		if(document.getElementById(t)) {
+		if(! document.getElementById(t)) {
 			document.getElementById(t).innerHTML = temp;
 		}
 	}
