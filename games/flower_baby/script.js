@@ -16,6 +16,8 @@ var trans = {
 		"p": "sparkle",
 		"i": "universe",
 		"inf": "infinite",
+		"feed": "Feed",
+		"hunt": "Hunt",
 		"meet_a": "You meet a(n) ",
 		"meet_b": " mob, attack it?\nSuccessful rate: ",
 		"kill": "You killed it!",
@@ -41,6 +43,8 @@ var trans = {
 		"p": "星火",
 		"i": "寰宇",
 		"inf": "无尽",
+		"feed": "喂食",
+		"hunt": "打猎",
 		"meet_a": "你遇到了一只",
 		"meet_b": "生物，要攻击吗？\n成功率：",
 		"kill": "你打死它了！",
@@ -66,6 +70,8 @@ var trans = {
 		"p": "火星",
 		"i": "环球影城",
 		"inf": "无尽贪婪",
+		"feed": "啃食滚木",
+		"hunt": "出门当科比乱肘击",
 		"meet_a": "你撞大运了一只",
 		"meet_b": "死虫子，要肘击吗？\n颗秒率：",
 		"kill": "你把它肘击了！",
@@ -85,7 +91,9 @@ function setLang(l) {
 	for (var i=0;i<key.length;i++){
 		var temp = wow[key[i]];
 		var t = key[i];
-		document.getElementById(t).innerHTML = temp;
+		if(document.getElementById(t)) {
+			document.getElementById(t).innerHTML = temp;
+		}
 	}
 }
 setLang("en");
